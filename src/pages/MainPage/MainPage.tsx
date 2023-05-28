@@ -1,7 +1,8 @@
 import {observer} from "mobx-react";
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {useStores} from "../../utils/use-stores-hook";
 import {Box, Button, Theme} from "@mui/material";
+import {UsersTable} from "../../components/UsersTable";
 
 
 export const MainPage = observer(() => {
@@ -16,6 +17,7 @@ export const MainPage = observer(() => {
       <Box>
         <Button disabled={false} onClick={()=>logout()}>Выйти</Button>
       </Box>
+      <UsersTable/>
     </>
   )
 });
