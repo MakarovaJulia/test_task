@@ -8,3 +8,10 @@ export const authValidationSchema = Yup.object({
     .required("Введите пароль"),
 });
 
+export const userValidationSchema = Yup.object({
+  name: Yup.string()
+    .required("Введите имя"),
+  job: Yup.string()
+    .required("Введите должность"),
+});
+
