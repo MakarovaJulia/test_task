@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import {Provider} from "mobx-react";
 import mainStore from "./stores/mainStore";
 import {BrowserRouter} from "react-router-dom";
+import {ModalConstructor} from "./components/Modals/ModalConstuctor";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -15,6 +16,7 @@ root.render(
     <Provider {...mainStore}>
       <BrowserRouter>
         <App />
+        <ModalConstructor/>
       </BrowserRouter>
     </Provider>
   </React.StrictMode>
