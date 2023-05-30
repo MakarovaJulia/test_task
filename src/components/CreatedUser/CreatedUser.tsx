@@ -26,20 +26,17 @@ export const CreatedUser = observer((props: any) => {
   }, [user])
 
   return (
-    <>
-      <Box>
+      <div style={{padding: "10px", border:"1px solid lightgray", borderRadius:"3px"}}>
         {userData?
           <>
-            <Box>
-              {userData.name}
-              {userData.job}
-              {userData.createdAt}
+            <Box sx={{display:"flex", flexDirection:"column", gap:"10px"}}>
+              <span>{userData.name} {userData.job} </span>
+              Создан: {userData.createdAt}
             </Box>
             <Button onClick={()=> handleDeleteUser(userData.id)}>Удалить</Button>
             <Button onClick={()=> openModal()}>Изменить</Button>
           </>
           :<></>}
-      </Box>
-    </>
+      </div>
   );
 });
