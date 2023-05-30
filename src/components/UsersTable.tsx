@@ -1,4 +1,4 @@
-import {Button, colors, SxProps, TablePagination} from '@mui/material';
+import {Button, CircularProgress, colors, SxProps, TablePagination} from '@mui/material';
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -110,10 +110,14 @@ export const UsersTable = () => {
                         </TableCell>
                       );
                     }
-                  }): <>Loading</>}
+                  }): <></>}
                 </TableRow>
               );
-            }): <>Loading</>}
+            }):
+              <TableCell>
+                <CircularProgress/>
+              </TableCell>
+            }
           </TableBody>
         </Table>
       </TableContainer>

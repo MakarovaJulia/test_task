@@ -36,8 +36,8 @@ export default class AuthStore {
 
   get isAuthorized() {
     return (
-      localStorage.getItem("token") !== null &&
-      localStorage.getItem("token") !== ""
+      localStorage.getItem("user") !== null &&
+      localStorage.getItem("user") !== ""
     );
   }
 
@@ -50,7 +50,6 @@ export default class AuthStore {
         this.isLoading = false;
         this.isError = false;
         localStorage.setItem("user", JSON.stringify(res.data));
-        localStorage.setItem("token", JSON.stringify(res.data));
       })
       .catch((err) => {
         this.isLoading = false;
@@ -78,7 +77,6 @@ export default class AuthStore {
   };
 
   logout = () => {
-    localStorage.removeItem("token");
     localStorage.removeItem("user");
     this.isError = false;
   };
