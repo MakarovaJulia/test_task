@@ -5,13 +5,14 @@ import {authValidationSchema} from "../../../utils/validationSchema";
 
 import {AuthForm} from "../AuthForm";
 import {NavLink} from "react-router-dom";
-import React from "react";
+import React, {useEffect} from "react";
+import {Typography} from "@mui/material";
 
 export const LoginForm = () => {
 
   let navigate = useNavigate()
 
-  const  {authStore: {login, isError, error}} = useStores();
+  const  {authStore: {login, isAuthorized, isError, error}} = useStores();
 
 
   const formik = useFormik({
@@ -25,20 +26,23 @@ export const LoginForm = () => {
         email: values.email,
         password: values.password
       })
-      if (!isError) {
-        navigate('/main')
-      }
     },
   })
+
+  useEffect(()=>{
+      navigate('/main')
+  },[isAuthorized])
 
   return (
     <div style={{
       width:"100%",
-      height:"90vh",
+      height:"70vh",
       display:"flex",
       flexDirection:"column",
-      alignItems: "center"
+      alignItems: "center",
+      marginTop: "10vh"
     }}>
+      <Typography variant="h2">Авторизация</Typography>
     <AuthForm formik={formik} error={error}/>
       <div style={{display:"flex", flexDirection:"row"}}>
         <p style={{margin:0}}>Еще не зарегистрированы?</p>

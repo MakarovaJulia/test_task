@@ -5,6 +5,7 @@ import {authValidationSchema} from "../../../utils/validationSchema";
 import {AuthForm} from "../AuthForm";
 import {NavLink} from "react-router-dom";
 import React from "react";
+import {Typography} from "@mui/material";
 
 export const SignupForm = () => {
 
@@ -25,7 +26,7 @@ export const SignupForm = () => {
         password: values.password
       })
       if (!isError) {
-        navigate('/main')
+        navigate('/')
       }
     },
   })
@@ -33,11 +34,13 @@ export const SignupForm = () => {
   return (
     <div style={{
       width:"100%",
-      height:"90vh",
+      height:"70vh",
       display:"flex",
       flexDirection:"column",
-      alignItems: "center"
+      alignItems: "center",
+      marginTop: "10vh"
     }}>
+      <Typography variant="h2">Регистрация</Typography>
       <AuthForm formik={formik}/>
       <div style={{display:"flex", flexDirection:"row"}}>
         <p style={{margin:0}}>Уже есть аккаунт?</p>
