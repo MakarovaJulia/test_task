@@ -9,7 +9,7 @@ export const UserUpdateModal = observer(() => {
 
   return (
     <Modal
-      title='Изменить данные юзера'
+      title='Изменить данные пользователя'
       onClose={clearCurrentModal}
       hasBtnForPartners={false}
       isBottomSheet

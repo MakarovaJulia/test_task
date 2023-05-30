@@ -9,12 +9,12 @@ export const UserModal = observer(() => {
 
     return (
         <Modal
-            title='Добавить юзера'
+            title='Добавить пользователя'
             onClose={clearCurrentModal}
             hasBtnForPartners={false}
             isBottomSheet
         >
-            <Box>
+            <Box sx={{display:"flex", flexDirection:"column"}}>
                 <UserForm action='add'></UserForm>
             </Box>
         </Modal>

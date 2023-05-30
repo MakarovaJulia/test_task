@@ -1,6 +1,6 @@
 import React, {FC, ReactNode, useRef} from 'react';
 import {useStores} from "../../../utils/use-stores-hook";
-import {Box, Button} from "@mui/material";
+import {Box, Button, SxProps} from "@mui/material";
 
 interface Props {
     title: ReactNode;
@@ -16,7 +16,6 @@ export const Modal: FC<Props> = (
         title,
         onClose,
         children,
-        hideCloseBtn=false,
     }) => {
     const {modalStore: {clearCurrentModal, setCurrentModal}} = useStores()
     const modalRef = useRef() as React.MutableRefObject<HTMLInputElement>;
@@ -27,21 +26,52 @@ export const Modal: FC<Props> = (
       }
     }
 
+  const modalContainerSx = {
+      position: "absolute",
+      left: 0,
+      right:0,
+      top:0,
+      bottom:0,
+      backgroundColor: "rgba(0,0,0, 0.5)",
+      width: "100%",
+      height: "100%",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      zIndex: 1000
+  }
+
+  const modalWindowSx = {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "flex-start",
+      padding: "36px",
+      width: "480px",
+      height: "min-content",
+      background: "#FFFFFF",
+      borderRadius: "8px",
+  }
+
+  const modalHeader = {
+    width: "100%",
+    display: "flex",
+    justifyContent: "space-between",
+    flexDirection: "row",
+  }
+
     return (
-        <div ref={modalRef} onClick={closeModal}>
-            <Box>
-                <Box>
+        <Box sx={modalContainerSx} ref={modalRef} onClick={closeModal}>
+            <Box sx={modalWindowSx}>
+                <Box sx={modalHeader}>
                     <h3>{title}</h3>
-                    {!hideCloseBtn &&
-                        <Button disabled={false} onClick={onClose}>
-                          <div>X</div>
-                        </Button>
-                    }
+                    <Button disabled={false} onClick={onClose}>
+                      <div>X</div>
+                    </Button>
                 </Box>
-                <Box>
+                <Box sx={{display:"flex", flexDirection:"column", width:"100%"}}>
                     {children}
                 </Box>
             </Box>
-        </div>
+        </Box>
     )
 }

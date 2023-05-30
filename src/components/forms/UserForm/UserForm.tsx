@@ -3,6 +3,7 @@ import {useStores} from "../../../utils/use-stores-hook";
 import {Box, Button, Input} from "@mui/material";
 import {userValidationSchema} from "../../../utils/validationSchema";
 import React, {useEffect} from "react";
+import {MainButton} from "../../MUI/Button/MainButton";
 
 
 export const UserForm = (props:any) => {
@@ -48,34 +49,28 @@ export const UserForm = (props:any) => {
   });
 
   return (
-    <>
-      <form onSubmit={formik.handleSubmit}>
-        <Box>
+      <form onSubmit={formik.handleSubmit} style={{display:"flex", flexDirection: "column", gap:"10px"}}>
           <Input
             id="name"
             type="text"
             placeholder="Имя"
             {...formik.getFieldProps("name")}
           />
-        </Box>
         {formik.touched.name && formik.errors.name ? (
-          <div>{formik.errors.name}</div>
+          <div style={{color: "#f50057"}}>{formik.errors.name}</div>
         ) : null}
-        <Box>
           <Input
             id="job"
             type="text"
             placeholder="Должность"
             {...formik.getFieldProps("job")}
           />
-        </Box>
         {formik.touched.job && formik.errors.job ? (
-          <div>{formik.errors.job}</div>
+          <div style={{color: "#f50057"}}>{formik.errors.job}</div>
         ) : null}
-        <Button title="Добавить" type="submit" disabled={false}>
+        <MainButton title="Добавить" type="submit" disabled={false}>
           {action == 'add'? 'Добавить': 'Изменить'}
-        </Button>
+        </MainButton>
       </form>
-    </>
   );
 };

@@ -25,7 +25,7 @@ export const AuthForm = (props:any) => {
           {...formik.getFieldProps('email')}
         />
         {formik.touched.email && formik.errors.email ? (
-          <div>{formik.errors.email}</div>
+          <div style={{color: "#f50057"}}>{formik.errors.email}</div>
         ) : null}
         <Input
           id='password'
@@ -34,9 +34,9 @@ export const AuthForm = (props:any) => {
           {...formik.getFieldProps('password')}
         />
         {formik.touched.password && formik.errors.password ? (
-          <div>{formik.errors.password}</div>
+          <div style={{color: "#f50057"}}>{formik.errors.password}</div>
         ) : null}
-        {error? <div>{error.error}</div>:<></>}
+        {error? <div style={{color: "#f50057"}}>{error.error}</div>:<></>}
         <MainButton
           type='submit'
           disabled={false}
