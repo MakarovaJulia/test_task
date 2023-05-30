@@ -6,6 +6,7 @@ export const MainButton = styled(Button)({
   color: 'white',
   margin: 5,
   borderRadius: 2,
+  maxWidth: "300px",
   "&:hover":{
     backgroundColor: colors.teal[400],
   },

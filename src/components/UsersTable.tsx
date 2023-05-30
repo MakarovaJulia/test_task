@@ -19,6 +19,7 @@ interface Column{
 
 export const UsersTable = () => {
 
+  let navigate = useNavigate();
   const [page, setPage] = React.useState<number>(0);
   const [users, setUsers] = React.useState<any>(null);
   const [columns, setColumns] = React.useState<any>(null);

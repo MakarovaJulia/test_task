@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from "react";
 import { observer } from "mobx-react";
-import {Box, Button, Theme} from "@mui/material";
+import {Box, Button, Theme, Typography} from "@mui/material";
 import {useStores} from "../../utils/use-stores-hook";
 import {UserModal} from "../../components/Modals/UsersAddModal/UsersAddModal";
 import {CreatedUser} from "../../components/CreatedUser/CreatedUser";
+import {MainButton} from "../../components/MUI/Button/MainButton";
 
 export const AddUsersPage = observer(() => {
 
@@ -33,12 +34,14 @@ export const AddUsersPage = observer(() => {
 
 
   return (
-    <>
-      <Box>
-        <Button onClick={() => openModal()}>Добавить юзера</Button>
-      </Box>
-      <Box>AddUsersPage</Box>
-      {user ? <CreatedUser user={user}/> : <>No user</>}
-    </>
+    <div style={{display:"flex", flexDirection:"column", marginTop:"5vh"}}>
+      <Typography variant="h3" sx={{margin:"auto"}}>Список пользователей</Typography>
+      <div style={{display:"flex", flexDirection:"column", alignItems:"flex-start", marginLeft:"5vh"}}>
+        <MainButton onClick={() => openModal()}>Добавить пользователя</MainButton>
+        <div>
+          {user ? <CreatedUser user={user}/> : <>Нет пользователей</>}
+        </div>
+      </div>
+    </div>
   );
 });

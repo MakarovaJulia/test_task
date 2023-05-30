@@ -26,34 +26,28 @@ export const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: "'Roboto', sans-serif",
     h1: {
-      fontFamily: 'Roboto',
       fontStyle: 'normal',
       fontWeight: 500,
       fontSize: '48px',
       lineHeight: '56px',
     },
     h2: {
-      fontFamily: 'Roboto',
       fontWeight: 500,
       fontSize: '34px',
       lineHeight: '40px',
     },
     h3: {
-      fontFamily: 'Roboto',
       fontWeight: 500,
       fontSize: '24px',
       lineHeight: '32px',
     },
     h4: {
-      fontFamily: 'Roboto',
       fontWeight: 400,
       fontSize: '14px',
       lineHeight: '20px',
     },
     h5: {
-      fontFamily: 'Roboto',
       fontWeight: 400,
       fontSize: '16px',
       lineHeight: '24px',
