@@ -1,4 +1,4 @@
-import { TablePagination } from '@mui/material';
+import {Button, colors, SxProps, TablePagination} from '@mui/material';
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -10,7 +10,6 @@ import * as React from 'react';
 import {useEffect} from "react";
 import {getUsersByPage} from "../fetchData";
 import {useNavigate} from "react-router";
-import {NavLink} from "react-router-dom";
 
 interface Column{
   label: string,
@@ -30,6 +29,10 @@ export const UsersTable = () => {
 
   const handleChangePage = (event: unknown, newPage: number) => {
     setPage(newPage);
+  };
+
+  const goTo = (path: string): void => {
+    navigate(path);
   };
 
   useEffect(()=>{
@@ -64,12 +67,20 @@ export const UsersTable = () => {
     setColumns(columnsTemp)
   }, [users])
 
+  const tableContainerSx: SxProps = {
+    width: "max-content",
+    maxHeight: 550,
+    border: "1px solid rgba(128,128,128,0.4)",
+    marginLeft: "auto",
+    marginRight: "auto"
+  }
+
   return (
-    <Paper >
-      <TableContainer >
+    <Paper sx={tableContainerSx} >
+      <TableContainer sx={tableContainerSx}>
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
-            <TableRow>
+            <TableRow >
               <TableCell />
               {columns? columns.map((column:any) => (
                 <TableCell key={column.id} align="left">
@@ -82,7 +93,9 @@ export const UsersTable = () => {
             {rows? rows.map((row: any) => {
               return (
                 <TableRow hover role="checkbox" tabIndex={0}>
-                  <NavLink to={`users/${row.id}`}>Перейти</NavLink>
+                <TableCell>
+                  <Button onClick={()=>{goTo(`users/${row.id}`)}} style={{textDecoration:"none"}}>Перейти</Button>
+                </TableCell>
                   {columns? columns.map((column:any) => {
                     const value = (row as any)[column.label];
                     if (column.label == 'avatar'){

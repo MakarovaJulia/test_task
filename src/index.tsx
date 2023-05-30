@@ -6,17 +6,21 @@ import reportWebVitals from './reportWebVitals';
 import {Provider} from "mobx-react";
 import mainStore from "./stores/mainStore";
 import {BrowserRouter} from "react-router-dom";
+import {ThemeProvider} from "@mui/material";
+import {theme} from "./styles/muiTheme";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
+    <ThemeProvider theme={theme}>
     <Provider {...mainStore}>
       <BrowserRouter>
         <App />
       </BrowserRouter>
     </Provider>
+    </ThemeProvider>
   </React.StrictMode>
 );
 

@@ -3,6 +3,7 @@ import React, {useEffect, useState} from "react";
 import {useStores} from "../../utils/use-stores-hook";
 import {Box, Button, Theme} from "@mui/material";
 import {UsersTable} from "../../components/UsersTable";
+import {MainButton} from "../../components/MUI/Button/MainButton";
 
 
 export const MainPage = observer(() => {
@@ -12,10 +13,10 @@ export const MainPage = observer(() => {
   return (
     <>
       <Box>
-        <Button disabled={false} onClick={()=>console.log(localStorage.getItem("user"))}>Есть юзер?</Button>
+        <MainButton disabled={false} onClick={()=>console.log(localStorage.getItem("user"))}>Есть юзер?</MainButton>
       </Box>
       <Box>
-        <Button disabled={false} onClick={()=>logout()}>Выйти</Button>
+        <MainButton disabled={false} onClick={()=>logout()}>Выйти</MainButton>
       </Box>
       <UsersTable/>
     </>
