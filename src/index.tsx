@@ -8,6 +8,7 @@ import mainStore from "./stores/mainStore";
 import {BrowserRouter} from "react-router-dom";
 import {ThemeProvider} from "@mui/material";
 import {theme} from "./styles/muiTheme";
+import {ModalConstructor} from "./components/Modals/ModalConstuctor";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -18,6 +19,7 @@ root.render(
     <Provider {...mainStore}>
       <BrowserRouter>
         <App />
+        <ModalConstructor/>
       </BrowserRouter>
     </Provider>
     </ThemeProvider>

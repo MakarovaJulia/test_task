@@ -10,6 +10,7 @@ import * as React from 'react';
 import {useEffect} from "react";
 import {getUsersByPage} from "../fetchData";
 import {useNavigate} from "react-router";
+import {NavLink} from "react-router-dom";
 
 interface Column{
   label: string,
@@ -17,8 +18,6 @@ interface Column{
 }
 
 export const UsersTable = () => {
-
-  const navigate = useNavigate();
 
   const [page, setPage] = React.useState<number>(0);
   const [users, setUsers] = React.useState<any>(null);
@@ -44,7 +43,6 @@ export const UsersTable = () => {
         setPerPage(data.data.per_page)
       })
     }
-    console.log('use Effect', page+1)
   }, [page])
 
   useEffect(()=>{
