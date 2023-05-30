@@ -3,7 +3,7 @@ import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import {LoginPage} from "./pages/LoginPage/LoginPage";
 import {MainPage} from "./pages/MainPage/MainPage";
-import {SignupPage} from "./pages/SignupPage";
+import {SignupPage} from "./pages/SignupPage/SignupPage";
 import {AddUsersPage} from "./pages/AddUsersPage/AddUsersPage";
 
 const App: FC = () => {

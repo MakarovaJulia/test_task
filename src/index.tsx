@@ -6,6 +6,8 @@ import reportWebVitals from './reportWebVitals';
 import {Provider} from "mobx-react";
 import mainStore from "./stores/mainStore";
 import {BrowserRouter} from "react-router-dom";
+import {ThemeProvider} from "@mui/material";
+import {theme} from "./styles/muiTheme";
 import {ModalConstructor} from "./components/Modals/ModalConstuctor";
 
 const root = ReactDOM.createRoot(
@@ -13,12 +15,14 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
+    <ThemeProvider theme={theme}>
     <Provider {...mainStore}>
       <BrowserRouter>
         <App />
         <ModalConstructor/>
       </BrowserRouter>
     </Provider>
+    </ThemeProvider>
   </React.StrictMode>
 );
 
