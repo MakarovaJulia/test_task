@@ -1,7 +1,6 @@
 import React from "react";
 import { observer } from "mobx-react";
-import {SignupForm} from "../../components/forms/SignupForm/SignupForm";
-import {colors, Container, Typography} from "@mui/material";
+import {colors, Typography} from "@mui/material";
 
 export const NotFoundPage = observer(() => {
 
